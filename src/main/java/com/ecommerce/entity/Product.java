@@ -32,9 +32,11 @@ public class Product {
     @Column(nullable = false)
     private Integer amount;
 
+    @Column(length = 500)
     private String imageUrl;
 
-    private Double rating;
+    @Builder.Default
+    private Double rating = 0.0;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id", nullable = false)
